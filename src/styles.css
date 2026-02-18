@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  max-width: 5000px;
+}
+
+.board-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.board-left {
+  flex: 0 0 auto;
+}
+
+.board-right {
+  flex: 1 1 0;
+}
+
+.side-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.instructions {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0;
+  aspect-ratio: 1;
+  max-width: 450px;
+  margin: 0 auto 1.5rem;
+  border: 2px solid #333;
+  background: #333;
+}
+
+.cell {
+  aspect-ratio: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.grid input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #999;
+  font-size: 1.25rem;
+  text-align: center;
+  background: #fff;
+  padding: 0;
+}
+
+.grid input:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+/* Right border thicker every 3 columns */
+.grid .col-2, .col-5 input {
+  border-right: 2px solid #333;
+} 
+
+.grid .row-2, .row-5 input {
+  border-bottom: 2px solid #333;
+} 
+
+/* Pre-filled cells (given puzzle) */
+.grid input.given {
+  background: #e8e8e8;
+  font-weight: 600;
+}
+
+/* Cells filled by solver */
+.grid input.solved {
+  background: #e0f0ff;
+}
+
+.possibility-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr); /* 🔥 important */
+  width: 600px;                      /* fixed width */
+  gap: 0;
+  max-width: 1000px;
+  aspect-ratio: 1;
+  border: 2px solid #333;
+  background: #f0f0f0;
+  font-size: 0.7rem;
+  box-sizing: border-box;
+}
+
+.possibility-cell {
+  border: 1px solid #ccc;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* white-space: nowrap; */
+  aspect-ratio: 1;
+  box-sizing: border-box;  /* 🔥 important */
+  /* overflow: hidden;    */
+}
+
+.possibility-grid .col-2, .col-5 {
+  border-right: 2px solid #333;
+} 
+
+.possibility-grid .row-2, .row-5 {
+  border-bottom: 2px solid #333;
+} 
+
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #0066cc;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: #666;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #555;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  min-height: 1.5em;
+}

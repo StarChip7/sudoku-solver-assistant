@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku Solver</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sudoku Solver</h1>
+    <p class="instructions">Enter the puzzle (1-9 in empty cells), then solve step by step or all at once.</p>
+
+    <div class="board-layout">
+      <div class="board-left">
+        <div id="grid" class="grid">
+          <!-- Grid populated by solver.js -->
+        </div>
+
+        <div class="controls">
+          <button id="solve-next" class="btn btn-primary">Solve Next Step</button>
+          <button id="solve-all" class="btn btn-primary">Solve All</button>
+          <button id="reset" class="btn btn-secondary">Reset to Input</button>
+          <button id="clear" class="btn btn-secondary">Clear</button>
+        </div>
+
+        <p id="status" class="status"></p>
+      </div>
+
+      <div class="board-right">
+        <h2 class="side-title">Possibility Grid</h2>
+        <div id="possibility-grid" class="possibility-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="solver.js"></script>
+</body>
+</html>
